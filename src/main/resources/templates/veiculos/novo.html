@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: head('Cadastro de veículos')}"></head>
+<body>
+<header th:replace="~{fragmentos :: header('Cadastrar veículo')}"></header>
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <form th:object="${veiculoDTO}" action="/veiculos" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Placa</label>
+                    <input class="form-control" type="text" th:field="*{placa}">
+                    <div class="invalid-feedback" ></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Marca</label>
+                    <input class="form-control" type="text" th:field="*{marca}">
+                    <div class="invalid-feedback" ></div>
+                </div><div class="mb-3">
+                    <label class="form-label">Modelo</label>
+                    <input class="form-control" type="text" th:field="*{modelo}">
+                    <div class="invalid-feedback" ></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tipo Veículo</label>
+                    <select class="form-select" th:field="*{tipoVeiculo}">
+                        <option th:each="tipo : ${tipoVeiculo}"
+                                th:value="${tipo}" th:text="${tipo}">
+                        </option>
+                    </select>
+                </div>
+                <div class="d-flex">
+                    <label class="col-sm-2 col-form-label">Disponível</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="true" id="flexRadioDefault1" th:field="*{disponivel}">
+                        <label class="form-check-label" for="flexRadioDefault1">Sim</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="flexRadioDefault2" th:field="*{disponivel}" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">Não</label>
+                    </div>
+                </div>
+                <input class="btn btn-primary mb-3" type="submit" value="Inserir veículo"/>
+                <a th:href="@{/veiculos}">Anterior</a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+</html>

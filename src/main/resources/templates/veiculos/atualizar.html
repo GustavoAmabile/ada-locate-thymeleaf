@@ -1,12 +1,12 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{componentes :: head('Cadastro de veículos')}"></head>
+<head th:replace="~{componentes :: head('Veículo Ada')}"></head>
 <body>
-<header th:replace="~{componentes :: header('Cadastrar veículo')}"></header>
-<div class="container-fluid">
-
+<header th:replace="~{componentes :: header('Veículo a ser alterado')}"></header>
+<div class="container">
+    <div class="container">
         <div class="row">
-            <form th:object="${veiculoDTO}" action="/veiculos" method="POST">
+            <form th:object="${veiculoDTO}" th:action="@{/veiculos/{veiculoId}(veiculoId = ${veiculoId})}" method="POST">
                 <div class="mb-3">
                     <label class="form-label">Placa</label>
                     <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{placa}">
@@ -29,18 +29,15 @@
                                 th:value="${tipo}" th:text="${tipo}">
                         </option>
                     </select>
-
-
                 </div>
-                <input class="btn btn-secondary " type="submit" value="Inserir veículo"/>
+                <input class="btn btn-secondary" type="submit" value="Atualizar"/>
                 <a class="btn btn-light" th:href="@{/veiculos}">Anterior</a>
-
 
             </form>
 
         </div>
 
-
+    </div>
 
 </div>
 

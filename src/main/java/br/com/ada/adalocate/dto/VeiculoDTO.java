@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Getter
 @Setter
@@ -27,17 +27,34 @@ public class VeiculoDTO {
     @NotNull
     private String modelo;
     private TipoVeiculo tipoVeiculo;
-
     private Boolean disponivel;
-
     public Veiculo toVeiculo() {
         Veiculo veiculo = new Veiculo();
         veiculo.setPlaca(this.placa);
         veiculo.setMarca(this.marca);
         veiculo.setModelo(this.modelo);
         veiculo.setTipoVeiculo(this.tipoVeiculo);
+        veiculo.setDisponivel(true);
         return veiculo;
+    }
 
+    public Veiculo toVeiculo(Veiculo veiculo) {
+
+        veiculo.setPlaca(this.placa);
+        veiculo.setMarca(this.marca);
+        veiculo.setModelo(this.modelo);
+        veiculo.setTipoVeiculo(this.tipoVeiculo);
+        veiculo.setDisponivel(true);
+        return veiculo;
+    }
+
+
+    public void recuperarVeiculo(Veiculo veiculo) {
+        this.placa = veiculo.getPlaca();
+        this.marca = veiculo.getMarca();
+        this.modelo = veiculo.getModelo();
+        this.tipoVeiculo = veiculo.getTipoVeiculo();
+        this.disponivel = veiculo.getDisponivel();
     }
 
 }

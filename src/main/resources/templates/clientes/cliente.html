@@ -1,29 +1,31 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragmentos :: head('Clientes Ada Locate')}"></head>
+<head th:replace="~{componentes :: head('Clientes Ada Locate')}"></head>
 <body>
-    <header th:replace="~{fragmentos :: header('Cliente ' + ${cliente.id} + ': ' + ${cliente.nome})}"></header>
-    <main>
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col-12">
-                    <b>Nome: </b> <span th:text="${cliente.nome}"></span><br/>
-                    <b>Tipo: </b> <span th:text="${cliente.tipoPessoa.toString()}"></span><br/>
-                    <b>Cpf/Cnpj: </b> <span th:text="${cliente.documento}"></span><br/>
-                    <b>e-mail: </b> <span th:text="${cliente.email}"></span><br/>
-                </div>
-
+<header th:replace="~{componentes :: header('Cliente ' + ${cliente.id} + ': ' + ${cliente.nome})}"></header>
+<main>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <b>Nome: </b> <span th:text="${cliente.nome}"></span><br/>
+                <b>Tipo: </b> <span th:text="${cliente.tipoPessoa.toString()}"></span><br/>
+                <b>Cpf/Cnpj: </b> <span th:text="${cliente.documento}"></span><br/>
+                <b>e-mail: </b> <span th:text="${cliente.email}"></span><br/>
             </div>
-            <div class="row">
+
+        </div>
+        <div class="container-fluid mb-5">
+            <div class="row mt-3">
                 <div class="col-12">
 
-                    <a href="/clientes">Lista clientes Ada</a>
+                    <a class="btn btn-light" href="/clientes">Lista clientes Ada</a>
                 </div>
 
             </div>
         </div>
+    </div>
 
-    </main>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

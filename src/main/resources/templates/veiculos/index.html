@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org" >
-<head th:replace="~{fragmentos :: head('Veículos Ada Locate')}"></head>
+<head th:replace="~{componentes :: head('Veículos Ada Locate')}"></head>
 <body>
-<header th:replace="~{fragmentos :: header('Véiculos Ada Locate')}"></header>
-<div class="container">
+<header th:replace="~{componentes :: header('Véiculos Ada Locate')}"></header>
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
       <table class="table">
@@ -14,17 +14,18 @@
           <th scope="col">marca</th>
           <th scope="col">modelo</th>
           <th scope="col">tipo</th>
-          <th scope="col">disponível</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="veiculo : ${veiculos}">
           <th class="col-1" scope="row" th:text="${veiculo.getId()}">Id</th>
-          <td class="col-4" th:text="${veiculo.placa}">placa</td>
-          <td class="col-4" th:text="${veiculo.marca}">marca</td>
-          <td class="col-4" th:text="${veiculo.modelo}">modelo</td>
-          <td class="col-4" th:text="${veiculo.tipoVeiculo.toString()}">tipo</td>
-          <td class="col-4" th:text="${veiculo.disponivel}">disponivel</td>
+          <td class="col-2" th:text="${veiculo.placa}">placa</td>
+          <td class="col-2" th:text="${veiculo.marca}">marca</td>
+          <td class="col-2" th:text="${veiculo.modelo}">modelo</td>
+          <td class="col-2" th:text="${veiculo.tipoVeiculo.toString()}">tipo</td>
+          <td class="col-2"><a class="btn btn-light" th:href="@{/veiculos/{veiculoId}(veiculoId = ${veiculo.id})}">Características</a></td>
+          <td class="col-2"><a class="btn btn-light" th:href="@{/veiculos/{veiculoId}/atualizar(veiculoId = ${veiculo.id})}">Atualizar</a></td>
+          <td class="col-2"><a class="btn btn-danger" th:href="@{/veiculos/{veiculoId}/deletar(veiculoId = ${veiculo.id})}">Excluir</a></td>
 
         </tr>
 
@@ -35,7 +36,7 @@
 
   </div>
   <div>
-    <a href="/veiculos/novo">Ada Carros</a>
+    <a class="btn btn-light" href="/veiculos/novo">Adicionar veículo</a>
   </div>
 </div>
 

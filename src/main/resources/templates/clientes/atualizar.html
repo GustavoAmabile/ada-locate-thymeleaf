@@ -1,10 +1,10 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragmentos :: head('Atualizar cliente')}"></head>
+<head th:replace="~{componentes :: head('Atualizar cliente')}"></head>
 <body>
-<header th:replace="~{fragmentos :: header('Atualizar cadastro Id: ' + ${clienteId})}"></header>
-<div class="container">
-    <div class="container">
+<header th:replace="~{componentes :: header('Atualizar cadastro Id: ' + ${clienteId})}"></header>
+<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <form th:object="${clienteDTO}" th:action="@{/clientes/{clienteId}(clienteId = ${clienteId})}" method="POST">
                 <div class="mb-3">
@@ -28,11 +28,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">e-mail</label>
-                    <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{email}">
+                    <input class="form-control" th:errorclass="is-invalid" type="email" th:field="*{email}">
                     <div class="invalid-feedback" th:errors="*{email}"></div>
                 </div>
-                <input class="btn btn-primary mb-3" type="submit" value="Atualizar"/>
-                <a th:href="@{/clientes}">Anterior</a>
+                <input class="btn btn-secondary" type="submit" value="Atualizar"/>
+                <a class="btn btn-light" th:href="@{/clientes}">Anterior</a>
 
             </form>
 

@@ -25,9 +25,6 @@ public class VeiculoService {
         return this.veiculoRepository.findById(id);
     }
 
-    public Optional<Veiculo> buscarVeiculoPelaPlaca(String placa) {
-        return this.veiculoRepository.findByPlacaContaining(placa);
-    }
 
     public void removerVeiculoPorId(Long id) {
         this.veiculoRepository.deleteById(id);

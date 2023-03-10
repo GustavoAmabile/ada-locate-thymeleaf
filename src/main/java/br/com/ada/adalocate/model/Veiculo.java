@@ -30,8 +30,7 @@ public class Veiculo {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoVeiculo tipoVeiculo;
-    @NonNull
-    @Column(nullable = false)
     private Boolean disponivel;
+
 
 }

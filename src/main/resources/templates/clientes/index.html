@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragmentos :: head('Clientes Ada Locate')}"></head>
+<head th:replace="~{componentes :: head('Clientes Ada Locate')}"></head>
 <body>
-<header th:replace="~{fragmentos :: header('Clientes Ada Locate')}"></header>
-<div class="container">
+<header th:replace="~{componentes :: header('Clientes Ada Locate')}"></header>
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <table class="table">
@@ -23,9 +23,9 @@
                     <td class="col-4" th:text="${cliente.tipoPessoa.toString()}">Tipo Cliente</td>
                     <td class="col-4" th:text="${cliente.documento}">cpf/cnpj</td>
                     <td class="col-4" th:text="${cliente.email}">email</td>
-                    <td class="col-1"><a th:href="@{/clientes/{clienteId}(clienteId = ${cliente.id})}">Detalhar</a></td>
-                    <td class="col-1"><a th:href="@{/clientes/{clienteId}/atualizar(clienteId = ${cliente.id})}">Atualizar</a></td>
-                    <td class="col-1"><a th:href="@{/clientes/{clienteId}/deletar(clienteId = ${cliente.id})}">Excluir</a></td>
+                    <td class="col-1"><a class="btn btn-light" th:href="@{/clientes/{clienteId}(clienteId = ${cliente.id})}">Detalhar</a></td>
+                    <td class="col-1"><a class="btn btn-light" th:href="@{/clientes/{clienteId}/atualizar(clienteId = ${cliente.id})}">Atualizar</a></td>
+                    <td class="col-1"><a class="btn btn-danger" th:href="@{/clientes/{clienteId}/deletar(clienteId = ${cliente.id})}">Excluir</a></td>
                 </tr>
 
                 </tbody>
@@ -35,7 +35,7 @@
 
     </div>
     <div>
-        <a href="/clientes/novo">Novo cadastro</a>
+        <a class="btn btn-light" href="/clientes/novo">Novo cadastro</a>
     </div>
 </div>
 

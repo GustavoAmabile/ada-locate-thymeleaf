@@ -54,7 +54,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ModelAndView detalharCliente(@PathVariable Long id) {
+    public ModelAndView exibirCliente(@PathVariable Long id) {
         Optional<Cliente> optional = this.clienteService.buscarClientePorId(id);
         if (optional.isPresent()) {
             Cliente cliente = optional.get();

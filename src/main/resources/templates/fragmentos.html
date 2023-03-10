@@ -12,20 +12,31 @@
 
 <header th:fragment="header(title)">
     <div class="container mt-3">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Página Inicial</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/veiculos">Veículos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/clientes">Clientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Sobre a Ada Locate</a>
-            </li>
-        </ul>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Página Inicial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/veiculos">Frota</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/clientes">Clientes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Sobre a Ada Locate</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
     <div class="container mt-3">
         <div class="row">

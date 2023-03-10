@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -45,7 +46,7 @@ public class ClienteController {
             modelAndView.addObject("tipoPessoa", TipoPessoa.values());
             return modelAndView;
         } else {
-            Cliente cliente= clienteDTO.toCliente();
+            Cliente cliente = clienteDTO.toCliente();
             this.clienteService.createCliente(cliente);
 
             return new ModelAndView("redirect:/clientes");
@@ -54,7 +55,7 @@ public class ClienteController {
 
     @GetMapping("/{id}")
     public ModelAndView detalharCliente(@PathVariable Long id) {
-        Optional<Cliente> optional =  this.clienteService.buscarClientePorId(id);
+        Optional<Cliente> optional = this.clienteService.buscarClientePorId(id);
         if (optional.isPresent()) {
             Cliente cliente = optional.get();
             ModelAndView modelAndView = new ModelAndView("clientes/cliente");
@@ -89,7 +90,7 @@ public class ClienteController {
             ModelAndView modelAndView = new ModelAndView("clientes/atualizar");
             modelAndView.addObject("clienteId", id);
             modelAndView.addObject("tipoPessoa", TipoPessoa.values());
-           return modelAndView;
+            return modelAndView;
         } else {
             Optional<Cliente> optional = this.clienteService.buscarClientePorId(id);
             if (optional.isPresent()) {
@@ -103,6 +104,13 @@ public class ClienteController {
 
         }
     }
+
+    @GetMapping("/{id}/deletar")
+    public String deletar(@PathVariable Long id) {
+        this.clienteService.removerClientePorId(id);
+        return "redirect:/clientes";
+    }
+
 
 
 }

@@ -25,7 +25,7 @@
                     <td class="col-4" th:text="${cliente.email}">email</td>
                     <td class="col-1"><a th:href="@{/clientes/{clienteId}(clienteId = ${cliente.id})}">Detalhar</a></td>
                     <td class="col-1"><a th:href="@{/clientes/{clienteId}/atualizar(clienteId = ${cliente.id})}">Atualizar</a></td>
-                    <td class="col-1"><a href="#">Excluir</a></td>
+                    <td class="col-1"><a th:href="@{/clientes/{clienteId}/deletar(clienteId = ${cliente.id})}">Excluir</a></td>
                 </tr>
 
                 </tbody>

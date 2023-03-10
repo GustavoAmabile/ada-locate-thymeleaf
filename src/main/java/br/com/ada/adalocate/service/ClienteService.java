@@ -5,6 +5,9 @@ import br.com.ada.adalocate.model.Cliente;
 import br.com.ada.adalocate.model.Veiculo;
 import br.com.ada.adalocate.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,11 +31,12 @@ public class ClienteService {
         return this.clienteRepository.findById(id);
     }
 
-    public Optional<Cliente> buscarClientePeloDocumento(String documento) {
-        return this.clienteRepository.findByDocumentoContaining(documento);
-    }
-
     public void removerClientePorId(Long id) {
         this.clienteRepository.deleteById(id);
+    }
+
+    public Page<Cliente> listarPaginado(Integer numeroPagina, Integer tamanhoPagina) {
+        return this.clienteRepository
+                .findAll(PageRequest.of(numeroPagina, tamanhoPagina, Sort.by(Sort.Order.asc("id"))));
     }
 }

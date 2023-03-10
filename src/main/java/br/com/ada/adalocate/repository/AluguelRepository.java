@@ -1,13 +1,12 @@
 package br.com.ada.adalocate.repository;
 
-import br.com.ada.adalocate.model.Veiculo;
+
+import br.com.ada.adalocate.model.Aluguel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
-
+import org.springframework.validation.ObjectError;
 
 @Repository
-public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
+public interface AluguelRepository extends JpaRepository<Aluguel, Long> {
 
 }

@@ -7,12 +7,10 @@ import br.com.ada.adalocate.model.Veiculo;
 import br.com.ada.adalocate.service.VeiculoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -27,10 +25,16 @@ public class VeiculoController {
     private VeiculoService veiculoService;
 
     @GetMapping("")
-    public ModelAndView index() {
+    public ModelAndView index(
+            @RequestParam(defaultValue = "1", value = "page") Integer numeroPagina,
+            @RequestParam(defaultValue = "3", value = "size") Integer tamanhoPagina) {
         List<Veiculo> listaVeiculos = this.veiculoService.listarTodos();
         ModelAndView modelAndView = new ModelAndView("veiculos/index");
-        modelAndView.addObject("veiculos", listaVeiculos);
+        Page<Veiculo> veiculoPage = this.veiculoService.listarPaginado(numeroPagina-1, tamanhoPagina);
+        modelAndView.addObject("veiculos", veiculoPage.getContent());
+        modelAndView.addObject("totalPages", veiculoPage.getTotalPages());
+        modelAndView.addObject("currentPage", numeroPagina);
+        modelAndView.addObject("pageSize", veiculoPage.getSize());
         return modelAndView;
     }
 

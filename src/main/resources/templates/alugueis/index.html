@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{componentes :: head('Aluguel de veículo')}"></head>
+<body>
+<header th:replace="~{componentes :: header('Alugar um veículo')}"></header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+        <tr>
+          <th th:scope="col">Id</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Veiculo</th>
+          <th scope="col">Retirada</th>
+          <th scope="col">Devolucao</th>
+          <th scope="col">Diárias</th>
+          <th scope="col">Valor diária</th>
+          <th scope="col">Valor aluguel</th>
+          <th scope="col">Valor com desconto</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aluguel : ${alugueis}">
+          <th class="col-1" scope="row" th:value="${aluguel.getId()}">Id</th>
+          <td class="col-1" >Cliente</td>
+          <td class="col-1" >Veículo</td>
+          <td class="col-1" >Retirada</td>
+          <td class="col-1" >Devolucao</td>
+          <td class="col-1" >Diárias</td>
+          <td class="col-1" >Valor diária</td>
+          <td class="col-1" >Valor aluguel</td>
+          <td class="col-1" >Valor com desconto</td>
+          <td class="col-1"><a class="btn btn-success"href="#">Detalhar</a></td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+  <div>
+    <a class="btn btn-light" href="#">Alugar um veículo</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@
         A classe escolhida para a apresentação foi a classe "Cliente". Foi inserida a classe "Veículo" como complemento e a classe "Aluguel" como esqueleto para 
         continuação do projeto após avaliação.
         Dados inseridos na tabela no template cliente/index.html.
-        Crud complento na classe ClienteController.
+        Crud completo na classe ClienteController.
         O requisito não funcional utilizado foi o Postgres (Docker).
     
     
